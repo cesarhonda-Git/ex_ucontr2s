@@ -22,20 +22,24 @@ volatile int saldo_vitrine = 0; // quantidadea de paos na vitrine
 void thread_A(void *p1, void *p2, void *p3) //padeiro
 {
     int pao = 0;
+    int saldo_pao = 0;
     while (1) {
-        if (saldo_vitrine < 10)
-        {
+        //if (saldo_vitrine < 10)
+        //{
             pao++;
-            saldo_vitrine++;
+            int saldo_pao = saldo_vitrine;
+            saldo_pao++;
+            k_msleep(50);
+            saldo_vitrine = saldo_pao;
             printk("PADEIRO: Pão #%d pronto (Saldo vitrine = %d)\n", pao, saldo_vitrine);
-        }
-        else
+            k_msleep(1000);
+        //}
+        /* else
         {
             printk("PADEIRO: Vitrine cheia ================================\n");
-        }
-        k_msleep(1000);
-        }
-
+            k_msleep(1000);
+        } */
+    }
 }
 
 
@@ -43,18 +47,23 @@ void thread_A(void *p1, void *p2, void *p3) //padeiro
 void thread_B(void *p1, void *p2, void *p3) //clientes
 {
     int pao = 0;
+    int saldo_pao = 0;
     while (1) {
-        if (saldo_vitrine > 0)
-        {
+        //if (saldo_vitrine > 0)
+        //{
             pao++;
-            saldo_vitrine--;
-            printk("CLIENTE: Peguei pão #%d (Saldo vitrine = %d)\n", pao, saldo_vitrine);
-            k_msleep(1500);    
-        }
-        else
+            int saldo_pao = saldo_vitrine;
+            saldo_pao--;
+            k_msleep(50);
+            saldo_vitrine = saldo_pao;
+            printk("CLIENTE: Peguei pão #%d (Saldo vitrine = %d)\n", pao, saldo_vitrine);    
+            k_msleep(1500);
+        //}
+        /* else
         {
             printk("CLIENTE: Vitrine vazia ================================\n");
-        }
+            k_msleep(1500);
+        } */
     }
 }
 

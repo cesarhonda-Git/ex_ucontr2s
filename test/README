@@ -9,3 +9,96 @@ in the development cycle.
 
 More information about PlatformIO Unit Testing:
 - https://docs.platformio.org/en/latest/advanced/unit-testing/index.html
+
+
+César Akira Abe Honda NUSP17884099
+https://github.com/cesarhonda-Git/ex_ucontr2s/tree/Padaria
+
+Teste 1 mesmas prioridades
+Padaria aberta...
+PADEIRO: Pão #1 pronto (Saldo vitrine = 1)
+CLIENTE: Peguei pão #1 (Saldo vitrine = 0)
+PADEIRO: Pão #2 pronto (Saldo vitrine = 1)
+CLIENTE: Peguei pão #2 (Saldo vitrine = 0)
+PADEIRO: Pão #3 pronto (Saldo vitrine = 1)
+PADEIRO: Pão #4 pronto (Saldo vitrine = 2)
+CLIENTE: Peguei pão #3 (Saldo vitrine = 1)
+PADEIRO: Pão #5 pronto (Saldo vitrine = 2)
+CLIENTE: Peguei p��o #4 (Saldo vitrine = 1)
+PADEIRO: Pão #6 pronto (Saldo vitrine = 2)
+CLIENTE: Peguei pão #5 (Saldo vitrine = 1)
+PADEIRO: Pão #7 pronto (Saldo vitrine = 2)
+PADEIRO: Pão #8 pronto (Saldo vitrine = 3)
+CLIENTE: Peguei pão #6 (Saldo vitrine = 2)
+PADEIRO: Pão #9 pronto (Saldo vitrine = 3)
+CLIENTE: Peguei pão #7 (Saldo vitrine = 2)
+PADEIRO: Pão #10 pronto (Saldo vitrine = 3)
+PADEIRO: Pão #11 pronto (Saldo vitrine = 4)
+CLIENTE: Peguei p��o #8 (Saldo vitrine = 3)
+PADEIRO: Pão #12 pronto (Saldo vitrine = 4)
+CLIENTE: Peguei pão #9 (Saldo vitrine = 3)
+PADEIRO: Pão #13 pronto (Saldo vitrine = 4)
+PADEIRO: Pão #14 pronto (Saldo vitrine = 5)
+CLIENTE: Peguei p��o #10 (Saldo vitrine = 4)
+PADEIRO: Pão #15 pronto (Saldo vitrine = 5)
+CLIENTE: Peguei p��o #11 (Saldo vitrine = 4)
+PADEIRO: Pão #16 pronto (Saldo vitrine = 5)
+PADEIRO: Pão #17 pronto (Saldo vitrine = 6)
+CLIENTE: Peguei pão #12 (Saldo vitrine = 5)
+PADEIRO: Pão #18 pronto (Saldo vitrine = 6)
+CLIENTE: Peguei pão #13 (Saldo vitrine = 5)
+PADEIRO: Pão #19 pronto (Saldo vitrine = 6)
+PADEIRO: Pão #20 pronto (Saldo vitrine = 7)
+CLIENTE: Peguei pão #14 (Saldo vitrine = 6)
+PADEIRO: Pão #21 pronto (Saldo vitrine = 7)
+CLIENTE: Peguei pão #15 (Saldo vitrine = 6)
+PADEIRO: Pão #22 pronto (Saldo vitrine = 7)
+PADEIRO: Pão #23 pronto (Saldo vitrine = 8)
+CLIENTE: Peguei pão #16 (Saldo vitrine = 7)
+PADEIRO: Pão #24 pronto (Saldo vitrine = 8)
+CLIENTE: Peguei pão #17 (Saldo vitrine = 7)
+PADEIRO: Pão #25 pronto (Saldo vitrine = 8)
+PADEIRO: Pão #26 pronto (Saldo vitrine = 9)
+CLIENTE: Peguei pão #18 (Saldo vitrine = 8)
+PADEIRO: Pão #27 pronto (Saldo vitrine = 9)
+CLIENTE: Peguei pão #19 (Saldo vitrine = 8)
+PADEIRO: Pão #28 pronto (Saldo vitrine = 9)
+PADEIRO: Pão #29 pronto (Saldo vitrine = 10)
+CLIENTE: Peguei pão #20 (Saldo vitrine = 9)
+PADEIRO: Pão #30 pronto (Saldo vitrine = 10)
+CLIENTE: Peguei pão #21 (Saldo vitrine = 9)
+PADEIRO: Pão #31 pronto (Saldo vitrine = 10)
+PADEIRO: Vitrine cheia ================================
+CLIENTE: Peguei pão #22 (Saldo vitrine = 9)
+PADEIRO: Pão #32 pronto (Saldo vitrine = 10)
+CLIENTE: Peguei p��o #23 (Saldo vitrine = 9)
+PADEIRO: Pão #33 pronto (Saldo vitrine = 10)
+PADEIRO: Vitrine cheia ================================
+CLIENTE: Peguei p��o #24 (Saldo vitrine = 9)
+PADEIRO: Pão #34 pronto (Saldo vitrine = 10)
+---- A porta serial COM18 fechou ----
+
+O saldo da vitrine sempre reflete corretamente a quantidade de pães?
+R: Sim.
+O cliente pode pegar pão quando a vitrine está vazia (saldo negativo)?
+R: Não, pois o padeiro produz pães mais rápido do que o cliente pega, além disso há um verificador do número de pães na vitrine antes do cliente pegar um pão.
+O padeiro pode deixar pães “acumulados demais” na vitrine?
+R: O padeiro produz pães até que se acumulem 10 na vitrine, pois há um verificador que impede que o padeiro produza mais de 10 pães, porém caso essa verificação não exista ele produziria mais pães do que a vitrine suporta.
+O saldo pode ficar incoerente por causa da concorrência?
+R: Nessa situação o saldo não fica incoerente.
+
+Parte 1
+Observe a execução do programa e altere o código se necessário:
+O saldo da vitrine sempre corresponde à quantidade real de pães disponíveis?
+R: Sim, porém era esperado que ocorresse um erro de deadlock e as quantidades não corresponderiam com o valor esperado.
+Em algum momento o saldo ficou negativo? O que isso significa na simulação?
+R: Não, esse erro seria representado pela mensagem “CLIENTE: Vitrine vazia ================================”
+Já aconteceu do saldo mostrar um valor maior do que realmente deveria?
+R: Não, porém caso o erro esperado ocorresse essa situação poderia ocorrer.
+Quem parece estar “ganhando a corrida”: o padeiro ou o cliente?
+R: O Padeiro está ganhando a corrida, pois ele está produzindo pães mais rápido do que o cliente pega.
+Explique, com suas palavras, por que o problema acontece quando duas threads acessam a mesma variável (saldo_vitrine) ao mesmo tempo sem proteção.
+R: Ambas as threads tentam mudar o valor de saldo_vitrine simultaneamente, isso faz com que essa variável possa não ser alterada por uma das threads, ocasionando em um erro de correspondência. Essa é a provavel explicação para o problema que não ocorreu.
+
+
+Correção: agora o codigo sofre com a race condition
